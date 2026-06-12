@@ -1,0 +1,64 @@
+# Nome do Workflow do GitHub Actions
+name: CI/CD Pipeline
+
+on:
+  push:
+    # Executa quando alterações são enviadas para a branch main
+    branches: [ main ]
+  pull_request:
+    # Executa quando Pull Requests são abertos para a branch main
+    branches: [ main ]
+
+# Permissões necessárias para realizar deploy nativo do GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas um deploy ativo por vez para evitar conflitos de corrida
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Etapa de Verificação de Qualidade e Compilação
+  build-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código-fonte no runner
+        uses: actions/checkout@v4
+
+      - name: Configuração do ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar dependências do projeto
+        run: npm ci
+
+      - name: Executar análise estática (Linter)
+        run: npm run lint
+
+      - name: Compilar build estático de produção
+        run: npm run build
+
+      # Faz upload do diretório gerado (dist) pelo build para ser implantado no Pages
+      - name: Carregar artefato para o GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  # Etapa de implantação/deploy que roda após o sucesso da build (somente na main)
+  deploy:
+    needs: build-and-lint
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Implantação no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
