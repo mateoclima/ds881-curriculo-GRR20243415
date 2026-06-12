@@ -9,7 +9,7 @@ O projeto demonstra o domínio prático de **conteinerização (Docker & Docker 
 ## 🚀 Link do Projeto em Produção
 
 O portfólio está publicado e pode ser acessado publicamente em:
-👉 **[Link do Currículo no GitHub Pages](https://mateoclima.github.io/ds881-curriculo-GRR20243415/)**
+👉 **[Currículo](https://mateoclima.github.io/ds881-curriculo-GRR20243415/)**
 
 ---
 
@@ -96,4 +96,4 @@ Abaixo está o registro da configuração das regras de proteção ativas na bra
 
 ---
 
-Desenvolvido para fins acadêmicos na disciplina de Governança de TI e Software.
+Desenvolvido para fins acadêmicos na disciplina de Tópicos Especiais em Tecnologias Emergentes.
