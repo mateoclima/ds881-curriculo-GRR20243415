@@ -90,9 +90,14 @@ As seguintes regras foram ativadas no repositório:
 
 Abaixo está o registro da configuração das regras de proteção ativas na branch `main`:
 
-*(Insira aqui o print de comprovação do GitHub das configurações de Branch Protection sob a branch `main`)*
+#### 1. Exigir Pull Request para a Branch Main
+![Regra de Branch Protection - Exigir Pull Request](./public/branch_protection_3.jpg)
 
-![Configuração da Regra de Branch Protection da Main](./public/branch_protection_screenshot.png)
+#### 2. Exigir Status Checks com Sucesso (build-and-lint)
+![Regra de Branch Protection - Status Checks](./public/branch_protection_2.jpg)
+
+#### 3. Aplicar Regras aos Administradores do Repositório
+![Regra de Branch Protection - Administradores](./public/branch_protection_1.jpg)
 
 ---
 
