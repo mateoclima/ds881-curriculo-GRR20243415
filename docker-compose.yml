@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: ds881-curriculo-dev
+    # Mapeamento de portas: porta 8080 da máquina hospedeira para a porta 8080 do contêiner
+    ports:
+      - "8080:8080"
+    # Mapeamento de volumes (Bind Mounts) para habilitar o Hot Reload
+    volumes:
+      - .:/app
+      # Volume anônimo para evitar que a pasta node_modules local sobrescreva a do contêiner
+      - /app/node_modules
+    # Variável de ambiente para garantir suporte a hot reload em alguns sistemas operacionais
+    environment:
+      - WATCHPACK_POLLING=true

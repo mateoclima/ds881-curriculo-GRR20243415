@@ -1,0 +1,17 @@
+# Ignorar dependências locais
+node_modules
+npm-debug.log
+
+# Ignorar pastas de compilação/build
+dist
+
+# Ignorar controle de versão
+.git
+.gitignore
+
+# Ignorar documentações e configurações locais
+.github
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
