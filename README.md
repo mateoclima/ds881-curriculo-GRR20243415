@@ -9,7 +9,7 @@ O projeto demonstra o domínio prático de **conteinerização (Docker & Docker 
 ## 🚀 Link do Projeto em Produção
 
 O portfólio está publicado e pode ser acessado publicamente em:
-👉 **[Link do Currículo no GitHub Pages](https://alexkutzke.github.io/ds881-curriculo-template/)** *(Substitua pelo link gerado pelo seu repositório após o deploy)*
+👉 **[Link do Currículo no GitHub Pages](https://mateoclima.github.io/ds881-curriculo-GRR20243415/)**
 
 ---
 
